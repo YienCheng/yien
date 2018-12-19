@@ -1,0 +1,35 @@
+
+extends ./layout/layout.pug
+
+block content
+  include ./layout/header.pug
+  .cye-container
+      .layui-container.login-container
+        .cye-login-pannel
+            .layui-tab.layui-tab-brief
+                ul.layui-tab-title
+                    li.layui-this 登入
+                    li
+                      a(href="/regist") 注册
+                .layui-tab-content
+                  form#login-form.layui-form.layui-form-pane
+                    .layui-form-item
+                      label.layui-form-label 用户名
+                      .layui-input-inline
+                        input.layui-input(type="text", name="username", placeholder="请输入用户名", required)
+                    .layui-form-item
+                      label.layui-form-label 密码
+                      .layui-input-inline
+                        input.layui-input(type="password", name="loginPassword", placeholder="请输入密码", required)
+                    .layui-form-item
+                      button.layui-btn.layui-btn-normal 立即登入
+                      a.forget(href="") 忘记密码？
+                    .layui-form-item.cye-from-item
+                      span 或直接使用社交账号登入
+                      a(href="")
+                        i.iconfont.icon-QQ
+                      a(href="")
+                        i.iconfont.icon-weixin1
+                    
+block script
+  script(src="/static/main/login.js")

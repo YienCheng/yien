@@ -1,0 +1,147 @@
+.layui-global-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  -webkit-box-shadow: 0 2px 2px #777;
+          box-shadow: 0 2px 2px #777;
+  .layui-global-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 60px;
+    .layui-global-logo {
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+      overflow: hidden;
+      min-width: 45px;
+      max-width: 300px;
+      padding: 0 20px;
+      text-align: center;
+      border-right: 1px solid transparent;
+      border-left: 1px solid transparent;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      -webkit-transition: all .5s;
+      transition: all .5s;
+      a {
+        display: block;
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        color: #ffffff;
+        span,i {
+          font-size: 24px;
+        }
+      }
+    }
+    .layui-global-logo:hover {
+      background-color: #0482ba;
+      border-right: 1px solid #0371a1;
+      border-left: 1px solid #0371a1;
+    }
+    .layui-nav-btn {
+      min-width: 45px;
+      height: 100%;
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      outline: none;
+      text-align: center;
+      border-left: 1px solid transparent;
+      border-right: 1px solid transparent;
+      -webkit-transition: all .5s;
+      transition: all .5s;
+      i {
+        margin-top: 7px;
+        font-size: 24px;
+      }
+    }
+    .layui-nav-btn.act {
+      background-color: #0482ba;
+      border-left: 1px solid #0371a1;
+      border-right: 1px solid #0371a1;
+    }
+    .layui-global-login {
+      position: absolute;
+      top: 0;
+      right: 15px;
+      height: 60px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      a {
+        color: rgba(255, 255, 255, .7);
+        i {
+          margin-right: 5px;
+        }
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+        }
+        span.username {
+          margin-right: 5px;
+        }
+      }
+      a:hover {
+        color: rgba(255, 255, 255, 1);
+      }
+      .user-nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 10px;
+        padding: 0 10px;
+        background-color: #fff;
+        border: 1px solid #d2d2d2;
+        li {
+          border-bottom: 1px solid #d2d2d2;
+          a {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            line-height: 40px;
+            span {
+              white-space:nowrap;
+            }
+            i {
+              font-size: 20px;
+            }
+            color: #333;
+          }
+        }
+        li:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .layui-global-header {
+    .layui-global-container {
+      padding: 0;
+      .layui-global-logo {
+        padding: 0;
+      }
+      .layui-global-nav {
+        position: absolute;
+        top: 65px;
+        left: 10px;
+        display: none;
+        border: 1px solid #0371a1;
+      }
+    }
+  }
+}

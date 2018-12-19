@@ -1,0 +1,110 @@
+
+extends ./layout/layout.pug
+
+block content
+  include ./layout/header.pug
+  .cye-container
+    .index-container
+      .index-side
+        .index-message.index-section
+          h2 最新留言
+          .h2-content
+            ul
+              li 
+                a(href="") MMiisaki：有点晕
+              li 
+                a(href="") 你九大娘的：这块有问题吧，这不应该是局部作用域么这是一条问题这是一条问题这是一条问题这是一条问题这是一条问题
+                  
+              li 
+                a(href="") 哈哈哈：这是一条问题
+              li 
+                a(href="") Full_Chaos: 居然没人问这个问题？
+              li 
+                a(href="") MMiisaki：有点晕
+              li 
+                a(href="") 你九大娘的：这块有问题吧，这不应该是局部作用域么
+              li 
+                a(href="") 哈哈哈：这是一条问题
+              li 
+                a(href="") Full_Chaos: 居然没人问这个问题？
+              li 
+                a(href="") 哈哈哈：这是一条问题
+              li 
+                a(href="") Full_Chaos: 居然没人问这个问题？
+        .index-tags.index-section
+          h2 标签
+          .h2-content
+            .tags-container
+              each tag in tags
+                a.tag(href="")=tag.name
+              a.tag(href="") 更多...
+        .index-follow.index-section
+          h2 Follow Me
+          .h2-content
+            .follow-container
+              a(href="")
+                img(src="/static/images/icon/wx.png", alt="微信")
+              a(href="")
+                img(src="/static/images/icon/wb.png", alt="微博")
+              a(href="")
+                img(src="/static/images/icon/github.png", alt="GitHub")
+      .index-wrapper
+        .index-recommend.index-section
+          h2 推荐文章
+          .h2-content
+            #swiper-container.swiper-container
+              .layui-carousel#new-carousel(lay-filter="new-carousel")
+                .carousel-item(carousel-item)
+                  each item in recommends
+                    div 
+                      a.swiper-item-container(href="/article/" + item._id)
+                        .swiper-item-bg.animated.duration-15.zoom
+                          img(src=item.banner, alt="banner")
+                        .swiper-item-content.animated.duration-2.slideInDown
+                          h3= item.title
+                          p= item.abstract
+        .index-new.index-section
+          h2 最新发表
+          .h2-content
+            .article-list
+              .article-item
+                a(href="").article-img
+                  img(src="/static/images/banner/1.jpg", alt="")
+                .article-content
+                  h3.article-title
+                    a(href="") 标题标题标题标题标题标题
+                  p.article-profile 这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍
+              .article-item
+                a(href="").article-img
+                  img(src="/static/images/banner/2.jpg", alt="")
+                .article-content
+                  h3.article-title
+                    a(href="") 标题标题标题标题标题标题
+                  p.article-profile 这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍
+              .article-item
+                a(href="").article-img
+                  img(src="/static/images/banner/3.jpg", alt="")
+                .article-content
+                  h3.article-title
+                    a(href="") 标题标题标题标题标题标题
+                  p.article-profile 这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍这是文章介绍
+        .index-qa.index-section
+          h2 意见反馈
+          .h2-content
+            .qa-container
+              from#qa-form.layui-form.layui-form-pane(action="")
+                .layui-form-item.layui-form-text
+                  .layui-form-label 请在此输入您的意见
+                  .layui-input-block
+                    textarea.layui-textarea(required, lay-verify="required", name="content", placeholder="你可以在此输入你的宝贵意见，我看到后会及时回复！")
+                .layui-form-item(style="text-align: right;")
+                  if !userInfo.username
+                    a.layui-btn.layui-btn-normal.layui-btn-lg.qa-btn(href="/user/login") 登录后发表反馈
+                  else 
+                    button#qa-btn.layui-btn.layui-btn-normal.layui-btn-lg.qa-btn(lay-submit, lay-filter="formDemo") 立即提交
+
+  include ./layout/friendshipLinks.pug
+  include ./layout/siderNav.pug
+
+block script
+  script(src="/static/main/index.js")

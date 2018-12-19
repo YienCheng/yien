@@ -1,0 +1,31 @@
+{
+  "name": "www.chengyien.com",
+  "description": "YienCheng's personal Web sites",
+  "main": "./bin/www",
+  "authors": [
+    "YienCheng"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "javascript",
+    "blog",
+    "chengyien"
+  ],
+  "homepage": "http://www.chengyien.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "layui": "^2.4.3",
+    "axios": "^0.18.0",
+    "babel-polyfill": "^0.0.1",
+    "highlight": "^9.13.1",
+    "simplemde": "^1.11.2"
+  }
+}

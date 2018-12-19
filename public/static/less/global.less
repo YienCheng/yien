@@ -1,0 +1,276 @@
+// 链接字体颜色
+@linkColour: #0593d3;
+// 链接hover字体颜色
+@linkHoverColour: #0371a1;
+
+.userSelectNone {
+  -moz-user-select: none; 
+  -o-user-select:none; 
+  -webkit-user-select:none;
+  -ms-user-select:none; 
+  user-select:none;
+}
+
+// 公共样式
+* {
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html,body {
+  background-color: #ffffff;
+}
+html {
+  height: 100%;
+}
+body {
+  position: relative;
+  min-height: 100%;
+}
+.cye-container {
+  padding-bottom: 60px;
+  padding-top: 60px;
+  .err-container {
+    padding: 20px;
+    .err-message {
+      h1 {
+        font-size: 50px;
+        font-weight: 700;
+        color: #333;
+      }
+      margin-top: 70px;
+      text-align: center;
+    }
+    .err-img {
+      margin-top: 50px;
+      text-align: center;
+      img {
+        width: 130px;
+        height: 130px;
+      }
+    }
+  }
+}
+
+// 友情链接
+.friendship-links {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  line-height: 1.5em;
+  border-top: 1px solid #dddddd;
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  a {
+    color: @linkColour;
+    &:hover {
+      text-decoration: underline;
+      color: @linkHoverColour;
+    }
+  }
+  .solid {
+    margin: 0 5px;
+  }
+  .solid:last-child {
+    display: none;
+  }
+}
+
+// header基础样式
+@import 'header.less';
+
+// 首页样式
+@import 'index.less';
+
+// 登陆页样式
+@import 'login.less';
+
+// 左下角左滑菜单
+@import 'site.less';
+
+// 动画
+@import 'animated.less';
+
+// 用户中心
+@import 'user.less';
+
+.category-container {
+  margin-top: 30px;
+  background-color: #F1F5F8;
+  @media screen and (max-width: 750px) {
+    margin-top: 0;
+    padding: 0;
+  }
+  .category-total {
+    text-align: center;
+    font-size: 18px;
+    padding: 40px 0 10px;
+    color: #333;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 30px;
+    padding-bottom: 15px;
+    @media screen and (max-width: 750px) {
+      padding: 15px;
+    }
+    li {
+      width: 260px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      background-color: #fff;
+      transition: all .3s;
+      @media screen and (max-width: 750px) {
+        width: 100%;
+      }
+      a {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        p {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          line-height: 1.5em;
+          transition: all .3s;
+        }
+        .name {
+          color: #333;
+          font-size: 16px;
+        }
+        .description {
+          color: #909090;
+          font-size: 12px;
+        }
+        .posts {
+          text-align: right;
+          font-size: 11px;
+          color: #D8D8D8;
+          i {
+            font-size: 11px;
+            margin-right: 5px;
+          }
+        }
+      }
+      &:hover {
+        box-shadow: rgb(214, 224, 232) 0px 6px 16px 0px;
+        a {
+          .name {
+            color: #0593d3;
+          }
+          .description {
+            color: rgb(104, 104, 104);
+          }
+        }
+      }
+    }
+  }
+}
+
+.article-container {
+  margin-top: 30px;
+  width: 620px;
+  .post-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    h1,
+    span {
+      margin-left: 5px;
+      font-size: 24px;
+      font-weight: 700;
+      color: #333;
+    }
+  }
+  .post-banner {
+    width: 540px;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+  .post-info {
+    padding: 10px 0;
+    line-height: 1.8em;
+    span {
+      margin-left: 10px;
+      font-size: 12px;
+    }
+    a {
+      color: #0593d3;
+      &:hover {
+        color: #0371a1;
+      }
+    }
+  }
+  .post-solid {
+    border-bottom: 1px solid #c9c9c9;
+  }
+  .post-content {
+    margin: 20px 0;
+    pre {
+      margin: 20px;
+      border-radius: 4px;
+      code {
+        border-radius: 4px;
+        padding: 15px;
+        font-size: 13px;
+        font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+      }
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+  .post-tags {
+    margin-bottom: 10px;
+    a.tag {
+      display: inline-block;
+      padding: 0 10px;
+      margin-bottom: 5px;
+      margin-left: 5px;
+      height: 25px;
+      line-height: 25px;
+      font-size: 12px;
+      color: #fff;
+      background-color: #0593d3;
+      transition: transform .5s;
+    }
+    a.tag:hover {
+      transform: scale(1.5)
+    }
+  }
+  .post-reply,
+  .post-comments {
+    margin-bottom: 10px;
+  }
+  .post-item-title {
+    font-size: 16px;
+    color: #333;
+  }
+  .post-comments-form {
+    margin-top: 15px;
+    .comment-submit {
+      text-align: right;
+    }
+  }
+}
+@media screen and (max-width: 750px) {
+  .article-container {
+    width: 100%;
+    .post-banner {
+      width: 100%;
+    }
+    .post-solid {
+      width: 100%;
+    }
+  }
+}

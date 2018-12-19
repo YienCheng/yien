@@ -1,0 +1,72 @@
+
+extends ./layout/layout.pug
+
+block content
+  include ./layout/header.pug
+  .cye-container
+    .user-container.layui-container
+      form#changepass-form
+        p
+          span 原密码
+          input#oldPass.layui-input(type="password", name="loginPassword", placeholder="请输入原密码")
+        p
+          span 新密码
+          input#newPass.layui-input(type="password", name="newPassword", placeholder="请输入新密码")
+        p
+          span 重复密码
+          input#rePass.layui-input(type="password", name="loginRePassword", placeholder="请重复输入新密码")
+      .user-sider
+        .user-avatar
+          .user-avatar-img
+            #uploadAvatar.user-avatar-cover
+              i.layui-icon.layui-icon-release
+              span 上传头像
+            img#user-avatar-img(src=userInfo.avatar, alt="头像加载中...")
+          .user-name
+            p= '你好，' + userInfo.nickname
+        .handle
+          button#changepsw-btn.layui-btn.layui-btn-normal 修改密码
+      .user-content
+        .pannel
+          .pannel-title
+            h3 基本信息
+          .pannel-content
+            .user-information
+              .item
+                span.item-title 系统账号：
+                span.item-content= userInfo.loginAccount
+              .item
+                span.item-title 登录账号：
+                span.item-content= userInfo.username
+              .item
+                span.item-title 电子邮箱：
+                span.item-content= userInfo.email
+              .item
+                span.item-title 登陆次数：
+                span.item-content= userInfo.loginCount
+              .item
+                span.item-title 创建时间：
+                span.item-content= createTime
+              .item
+                span.item-title 最近登陆：
+                span.item-content= lastLoginTime
+            p.user-information-edit(style="display: none;")
+              i.layui-icon.layui-icon-edit
+              span 编辑
+        .pannel
+          .pannel-title
+            h3 我的问答
+          .pannel-content
+            ul.qa-list
+              li
+                a(href="") 
+                  i.layui-icon.layui-icon-help
+                  |这是一条新问题第三方可改善客户的购房贷款公司加工费卡的各个房间电话归属地科技噶的说法噶科技感的感觉得给对方加爱国福五个月
+              li
+                a(href="")
+                  i.layui-icon.layui-icon-help
+                  |这是一条新问题第三方可改善客户的购房贷款公司加工费卡的各个房间电话归属地科技噶的说法噶科技感的感觉得给对方加爱国福五个月
+  include ./layout/friendshipLinks.pug
+
+block script
+  script(src="/static/main/user.js")

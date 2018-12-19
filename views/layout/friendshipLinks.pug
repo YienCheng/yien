@@ -1,0 +1,7 @@
+.friendship-links
+  p 
+    span 友情链接：
+    each item in friendLink
+      if item.status
+        a(href=item.link, target="_blank")= item.name
+        span.solid -

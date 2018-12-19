@@ -1,0 +1,45 @@
+.layui-header.layui-bg-blue.layui-global-header
+  .layui-container.layui-global-container
+    h1.layui-global-logo
+      a(href="/")
+        span.layui-hide-xs= webGlobal.name
+        i.layui-hide-sm.layui-icon.layui-icon-home
+    button#nav-toggle-btn.layui-nav-btn.layui-hide-sm(type="button")
+      i.layui-inline.iconfont.icon-daohang
+    ul#header-nav.layui-global-nav.layui-nav.layui-bg-blue
+      - for (var x = 0; x < 5; x++)
+        if navList.length && x < navList.length && navList[x].status
+          li.layui-nav-item
+            a(href=navList[x].link, target=navList[x].target)= navList[x].name
+      if navList.length > 5
+        li.layui-nav-item
+            a(href="javascript:;") 更多
+            dl.layui-nav-child
+              - for (var x = 5; x < navList.length; x++)
+                if navList[x].status
+                  dd
+                    a(href=navList[x].link, target=navList[x].target)= navList[x].name
+    .layui-global-login
+      if !userInfo.username
+        a(href="/login")
+          i.layui-icon.layui-icon-username
+          span 登入
+      else
+        a#user-avatar(href="javascript:;")
+          span.username.layui-hide-xs= userInfo.nickname
+          img(src=userInfo.avatar, alt="avatar")
+        ul#user-nav.user-nav.layui-anim.layui-anim-upbit
+          li
+            a(href="/user")
+              i.layui-icon.layui-icon-username
+              span 个人资料
+          if userInfo.role === 'manager'
+            li
+              a(href="http://localhost:3001/manage")
+                i.layui-icon.layui-icon-set
+                span 后台管理
+          li
+            a#exit(href="javascript:;")
+              i.iconfont.icon-tuichu
+              span 退出
+        

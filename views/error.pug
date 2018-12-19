@@ -1,0 +1,14 @@
+extends ./layout/layout.pug
+
+block content
+  include ./layout/header.pug
+  .cye-container
+    .err-container
+      .err-message
+        h1= status + ' ' + message
+      .err-img
+        img(src="/static/images/error.png", alt="访问出错")
+        
+  include ./layout/friendshipLinks.pug
+block script
+  script(src="/static/main/index.js")

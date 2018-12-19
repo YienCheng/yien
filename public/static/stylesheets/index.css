@@ -1,0 +1,169 @@
+.index-container {
+  max-width: 1700px;
+  width: 100%;
+  padding: 20px 35px;
+  padding-right: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.index-container .index-section {
+  width: 100%;
+  margin-bottom: 25px;
+}
+.index-container .index-section h2 {
+  margin-bottom: 10px;
+  color: #444;
+  font-size: 18px;
+}
+.index-container .index-recommend .swiper-container {
+  margin-right: 25px;
+  max-width: 640px;
+  height: 395px;
+}
+.index-container .index-recommend .swiper-container .swiper-item-container {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.index-container .index-recommend .swiper-container .swiper-item-container .swiper-item-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.index-container .index-recommend .swiper-container .swiper-item-container .swiper-item-bg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.index-container .index-recommend .swiper-container .swiper-item-container .swiper-item-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+.index-container .index-recommend .swiper-container .swiper-item-container .swiper-item-content h3 {
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.index-container .index-recommend .swiper-container .swiper-item-container .swiper-item-content p {
+  font-size: 13px;
+}
+.index-container .index-wrapper {
+  margin-right: 275px;
+  padding-right: 10px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.index-container .index-side {
+  float: right;
+  width: 275px;
+  padding-right: 35px;
+  -webkit-box-sizing: border-box;
+  padding-left: 10px;
+  border-left: 1px solid #dddddd;
+  box-sizing: border-box;
+}
+.index-container .index-message li {
+  margin-bottom: 10px;
+}
+.index-container .index-message li a {
+  line-height: 1.5em;
+  color: #0593d3;
+  font-size: 13px;
+}
+.index-container .index-message li a:hover {
+  color: #0371a1;
+}
+.index-container .index-tags .tags-container a.tag {
+  display: inline-block;
+  padding: 0 10px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 12px;
+  color: #fff;
+  background-color: #0593d3;
+  transition: transform .5s;
+}
+.index-container .index-tags .tags-container a.tag:hover {
+  transform: scale(1.5);
+}
+.index-container .index-follow .follow-container {
+  overflow: hidden;
+}
+.index-container .index-follow .follow-container a {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.index-container .index-follow .follow-container a img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.index-container .index-new .article-list .article-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 15px;
+}
+.index-container .index-new .article-list .article-item .article-img {
+  flex-shrink: 0;
+  width: 160px;
+  height: 90px;
+  margin-right: 15px;
+}
+.index-container .index-new .article-list .article-item .article-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.index-container .index-new .article-list .article-item .article-content .article-title {
+  margin-bottom: 10px;
+}
+.index-container .index-new .article-list .article-item .article-content .article-title a {
+  font-size: 16px;
+  color: #0593d3;
+}
+.index-container .index-new .article-list .article-item .article-content .article-title a:hover {
+  color: #0477ab;
+  text-decoration: underline;
+}
+.index-container .index-new .article-list .article-item .article-content .article-profile {
+  color: #666;
+  font-size: 12px;
+}
+@media screen and (max-width: 750px) {
+  .index-container {
+    padding: 20px 20px;
+  }
+  .index-container .index-wrapper {
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .index-container .index-side {
+    display: none;
+    float: none;
+  }
+  .index-container .index-recommend .swiper-container {
+    margin-right: 0;
+  }
+  .qa-btn {
+    width: 100%;
+  }
+}

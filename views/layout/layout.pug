@@ -1,0 +1,28 @@
+//- html head 模板
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    title= title + ' - ' + webGlobal.title
+    meta(name="keywords", content=webGlobal.keywords)
+    meta(name="description", content=webGlobal.description)
+    meta(name="renderer", content="webkit")
+    meta(http-equiv="X-UA-Compatible",content="ie=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+    meta(name="apple-mobile-web-app-status-bar-style", content="black")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="format-detection", content="telephone=no")
+    link(rel="icon", type="image/x-icon", href=webGlobal.icon)
+    link(rel="stylesheet", href="/static/iconfont/iconfont.css" + '?v=' + webGlobal.version)
+    link(rel="stylesheet", href="/static/lib/layui/css/layui.css")
+    link(rel="stylesheet", href="/static/stylesheets/global.css" + '?v=' + webGlobal.version)
+    block style
+    
+    script(src="/static/lib/babel-polyfill/dist/polyfill.min.js")
+    script window.appVersion = #{webGlobal.version}
+  body
+    block content
+
+    script(src="/static/lib/axios/dist/axios.min.js")
+    script(src="/static/lib/layui/layui.js")
+    block script
