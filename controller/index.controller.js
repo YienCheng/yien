@@ -1,5 +1,5 @@
 const tagSql = require('../db/sql/tag.sql')
-const postSql = require('../db/sql/post.sql')
+const postSql = require('../db/sql/article.sql')
 module.exports = {
   setTags (req, res, next) {
     tagSql.getEnable()

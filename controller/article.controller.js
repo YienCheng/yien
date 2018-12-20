@@ -1,4 +1,4 @@
-const postSql = require('../db/sql/post.sql')
+const postSql = require('../db/sql/article.sql')
 const createError = require('http-errors')
 // const debug = require('debug')('articleController')
 module.exports = {

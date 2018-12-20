@@ -1,6 +1,5 @@
-const userSql = require('../db/sql/user.sql')
-const rules = require('../config/rules')
-// const debug = require('debug')(`yien:userController`)
+const userSql = require('../../db/sql/user.sql')
+const rules = require('../../config/rules')
 
 module.exports = {
   regist (req, res, next) {
@@ -49,6 +48,37 @@ module.exports = {
       loginPassword
     })
       .then(doc => {
+        req.session.userInfo = doc
+        res.locals.result = doc
+        next()
+      })
+      .catch(error => {
+        next(error)
+      })
+  },
+  manageLogin (req, res, next) {
+    let username = req.body.username
+    let loginPassword = req.body.loginPassword
+    if (!rules.username.test(username)) {
+      return res.json({
+        code: 1005,
+        message: '用户名不存在',
+        result: {}
+      })
+    }
+    if (!rules.loginPassword.test(loginPassword)) {
+      return res.json({
+        code: 1006,
+        message: '密码错误',
+        result: {}
+      })
+    }
+    userSql.authUserInfo({
+      username,
+      loginPassword
+    })
+      .then(doc => {
+        if (doc.role !== 'manager') return next({ status: 1005, message: '用户名不存在' })
         req.session.userInfo = doc
         res.locals.result = doc
         next()
@@ -147,6 +177,9 @@ module.exports = {
       loginAccount
     })
       .then(status => {
+        req.session.userInfo.username = username
+        req.session.userInfo.nickname = nickname
+        req.session.userInfo.email = email
         res.locals.result = status
         next()
       })
