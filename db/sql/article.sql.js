@@ -1,23 +1,21 @@
 const Article = require('../models/article.model')
+const mongoose = require('mongoose')
+const ObjectId = mongoose.Types.ObjectId
 
 module.exports = {
-  add ({ authorLink, title, abstract, author, content, createTime, category, tags, published, type, poster, keywords, description, banner }) {
+  add ({ title, abstract, author, category, tags, type, poster, banner, authorLink, post }) {
     return new Promise((resolve, reject) => {
       new Article({
         title,
         abstract,
         author,
-        content,
         authorLink,
-        createTime,
         category,
         tags,
-        published,
         type,
         poster,
-        keywords,
-        description,
-        banner
+        banner,
+        post
       })
         .save((error, doc) => {
           if (error) return reject(error)
@@ -54,14 +52,24 @@ module.exports = {
         })
     })
   },
-  getList ({ pageSize, pageNumber }) {
-    let size = parseInt(pageSize) || 10
-    let number = parseInt(pageNumber) || 1
+  getList ({ id, title, createTime, pageSize, pageNumber }) {
     return new Promise((resolve, reject) => {
+      let query = {}
+      let size = parseInt(pageSize) || 10
+      let number = parseInt(pageNumber) || 1
+      if (id) {
+        try {
+          query._id = new ObjectId(id)
+        } catch (e) {
+          return resolve([])
+        }
+      }
+      if (title) query.title = { $regex: new RegExp(title, 'i') }
+      if (createTime) query.createTime = { $gte: new Date(parseInt(createTime)).setHours(0, 0, 0), $lt: new Date(parseInt(createTime)).setHours(23, 59, 59) }
       Article.count()
         .exec((error, count) => {
           if (error) return reject(error)
-          Article.find()
+          Article.find(query)
             .limit(size)
             .skip(size * (number - 1))
             .exec((error, docs) => {

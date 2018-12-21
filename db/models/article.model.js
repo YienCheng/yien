@@ -17,11 +17,6 @@ const PostSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  // 内容
-  content: {
-    type: String,
-    default: ''
-  },
   // 作者
   author: {
     type: String,
@@ -33,6 +28,11 @@ const PostSchema = new mongoose.Schema({
     type: String,
     trim: true,
     default: '/about'
+  },
+  post: {
+    type: ObjectId,
+    required: true,
+    ref: 'Post'
   },
   // 提交者
   poster: {
@@ -79,18 +79,6 @@ const PostSchema = new mongoose.Schema({
   recommend: {
     type: Boolean,
     default: false
-  },
-  // seo 文章描述
-  description: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  // seo 关键字
-  keywords: {
-    type: String,
-    required: true,
-    trim: true
   },
   // 图片
   banner: {

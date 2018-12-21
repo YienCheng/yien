@@ -132,8 +132,16 @@ router.post('/manage/deleteArticle', articleController.deleteArticleById)
 
 // 新增文章资源
 router.post('/manage/addPost', postController.add)
-// 获取文章资源
+// 获取文章资源列表
 router.get('/manage/getPostList', postController.getList)
+// 删除文章资源
+router.post('/manage/deletePost', postController.deleteById)
+// 获取文章资源
+router.get('/manage/getPost', postController.getById)
+// 更新文章资源
+router.post('/manage/updatePost', postController.updateById)
+// 通过title模糊查询
+router.get('/manage/getByTitleFuzzy', postController.getByTitleFuzzy)
 
 router.use((req, res, next) => {
   if (res.locals.result) {
