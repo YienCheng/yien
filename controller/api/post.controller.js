@@ -81,7 +81,6 @@ module.exports = {
       })
   },
   getByTitleFuzzy (req, res, next) {
-    if (!req.query.title) return next({ status: 5002, message: '标题不能为空' })
     postSql.getByTitleFuzzy(req.query.title)
       .then(docs => {
         res.locals.result = docs

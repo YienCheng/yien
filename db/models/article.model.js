@@ -29,10 +29,15 @@ const PostSchema = new mongoose.Schema({
     trim: true,
     default: '/about'
   },
+  // 文章
   post: {
     type: ObjectId,
-    required: true,
     ref: 'Post'
+  },
+  // wiki
+  wiki: {
+    type: ObjectId,
+    ref: 'Wiki'
   },
   // 提交者
   poster: {
@@ -69,6 +74,11 @@ const PostSchema = new mongoose.Schema({
     type: String,
     enum: ['original', 'reprint'],
     default: 'original'
+  },
+  mold: {
+    type: String,
+    enum: ['article', 'wiki'],
+    default: 'article'
   },
   // 是否发布
   published: {

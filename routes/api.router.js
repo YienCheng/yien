@@ -129,6 +129,12 @@ router.get('/manage/getArticle', articleController.getArticleById)
 router.post('/manage/updateArticle', articleController.updateArticleById)
 // 删除文章
 router.post('/manage/deleteArticle', articleController.deleteArticleById)
+// 新增Wiki
+router.post('/manage/addWiki', articleController.addWiki)
+// 获取wiki列表
+router.get('/manage/getWikiList', articleController.getWikiList)
+// 更新wiki
+router.post('/manage/updateWiki', articleController.updateWikiById)
 
 // 新增文章资源
 router.post('/manage/addPost', postController.add)
